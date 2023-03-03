@@ -7,7 +7,7 @@
         tag: v0.12.23
 3.Сколько родителей у коммита b8d720? Напишите их хеши.
         $ git show b8d720 -s
-        2 коммита
+        2 родителя
         56cd7859e0 9ea88f22fc
 4.Перечислите хеши и комментарии всех коммитов которые были сделаны между тегами v0.12.23 и v0.12.24.
         $ git log --oneline v0.12.23..v0.12.24
@@ -37,5 +37,5 @@
 7.Кто автор функции synchronizedWriters?
         git log -S'func synchronizedWriters'
         git show 5ac311e2a91e381e2f52234668b49ba670aa0fe5
-        commit 5ac311e2a91e381e2f52234668b49ba670aa0fe5
+        
         Author: Martin Atkins
