@@ -42,3 +42,8 @@ end
 <img src="/lesson5_img/8.png">
 
 7)touch {1..100000}.txt
+
+touch {1..300000}.txt
+bash: /usr/bin/touch: Слишком длинный список аргументов
+
+
