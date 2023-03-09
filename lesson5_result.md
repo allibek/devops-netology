@@ -12,6 +12,7 @@
 <img src="/lesson5_img/5.png">
 
 3) Добавление оперативной памяти и CPU:
+
 Vagrant.configure("2") do |config|
 
     config.vm.box = "bento/ubuntu-20.04"
