@@ -38,19 +38,28 @@ end
    ignoreboth совпадающие строки в истории не сохраняются
 <img src="/lesson5_img/7.png">
 
-6) {} - список
+6) 
+{} - список
 <img src="/lesson5_img/8.png">
 
-7)touch {1..100000}.txt
+7)
+touch {1..100000}.txt
 
 touch {1..300000}.txt
 bash: /usr/bin/touch: Слишком длинный список аргументов
 
 
-8) [[ -d /tmp ]] - проверяет что директория существует
-9) -
+8) 
+[[ -d /tmp ]] - проверяет что директория существует
+
+
+9)
+<img src="/lesson5_img/9.png">
+
+
 10) -
 
 
 
-11) <img src="/lesson5_img/11.png">
+11) 
+<img src="/lesson5_img/11.png">
