@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
 	    v.cpus = 4
     end
 end
+<img src="/lesson5_img/res.png">
 
 
 4)Подключение по ssh:
