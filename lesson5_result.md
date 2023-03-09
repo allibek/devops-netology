@@ -40,3 +40,5 @@ end
 
 6) {} - список
 <img src="/lesson5_img/8.png">
+
+7)touch {1..100000}.txt
