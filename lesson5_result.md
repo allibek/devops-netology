@@ -37,3 +37,6 @@ end
    Строка 941. искать: /HISTSIZE
    ignoreboth совпадающие строки в истории не сохраняются
 <img src="/lesson5_img/7.png">
+
+6) {} - список
+<img src="/lesson5_img/8.png">
