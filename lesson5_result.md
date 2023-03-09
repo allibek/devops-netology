@@ -11,6 +11,15 @@
 2) Ресурсы выделеные по-умолчанию: 2/1024
 <img src="/lesson5_img/5.png">
 
+3) Добавление оперативной памяти и CPU:
+Vagrant.configure("2") do |config|
+    config.vm.box = "bento/ubuntu-20.04"
+    config.vm.provider "virtualbox" do |v|
+	    v.memory = 2024
+	    v.cpus = 4
+    end
+end
+
 
 4)Подключение по ssh:
 <img src="/lesson5_img/6.png">
