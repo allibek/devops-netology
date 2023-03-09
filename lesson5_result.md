@@ -7,7 +7,11 @@
 
 <img src="/lesson5_img/4.png">
 
+
+2) Ресурсы выделеные по-умолчанию: 2/1024
 <img src="/lesson5_img/5.png">
 
+
+4)Подключение по ssh:
 <img src="/lesson5_img/6.png">
 
