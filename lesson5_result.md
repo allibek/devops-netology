@@ -32,3 +32,8 @@ end
 4)Подключение по ssh:
 <img src="/lesson5_img/6.png">
 
+
+5) export $HISTSIZE=....
+   Строка 941. искать: /HISTSIZE
+   ignoreboth совпадающие строки в истории не сохраняются
+<img src="/lesson5_img/7.png">
