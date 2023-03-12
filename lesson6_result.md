@@ -6,7 +6,7 @@ cd — это встроенная команда bash
 
 2) Какая альтернатива без pipe команде grep <some_string> <some_file> | wc -l?
 
-root@hp:/home/ali# grep -c firmware /var/log/messages
+root@hp:/home/ali# grep -c firmware /var/log/messages     
 5
 
 
