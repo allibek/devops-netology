@@ -82,10 +82,10 @@ not a tty
 
 13) Бывает, что есть необходимость переместить запущенный процесс из одной сессии в другую. Попробуйте сделать это, воспользовавшись reptyr. Например, так можно перенести в screen процесс, который вы запустили по ошибке в обычной SSH-сессии.    
       
- root@hp:/home/ali# reptyr 16150
- [-] Timed out waiting for child stop.
- root@hp:/home/ali# echo $$
- 16150
+ root@hp:/home/ali# reptyr 16150     
+ [-] Timed out waiting for child stop.    
+ root@hp:/home/ali# echo $$       
+ 16150       
  root@hp:/home/ali# 
             
             
