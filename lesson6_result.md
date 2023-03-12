@@ -6,13 +6,6 @@ cd — это встроенная команда bash
 
 2) Какая альтернатива без pipe команде grep <some_string> <some_file> | wc -l?
 
-root@hp:/home/ali# grep firmware /var/log/messages
-
-Mar 12 14:15:27 hp kernel: [ 3774.070441] (NULL device *): firmware: direct-loading firmware regulatory.db.p7s
-Mar 12 14:15:27 hp kernel: [ 3774.070442] (NULL device *): firmware: direct-loading firmware rtl_bt/rtl8821c_config.bin
-Mar 12 14:15:27 hp kernel: [ 3774.070443] (NULL device *): firmware: direct-loading firmware regulatory.db
-Mar 12 14:15:27 hp kernel: [ 3774.070478] (NULL device *): firmware: direct-loading firmware rtl_bt/rtl8821c_fw.bin
-Mar 12 14:15:27 hp kernel: [ 3774.070619] (NULL device *): firmware: direct-loading firmware i915/tgl_dmc_ver2_08.bin
 root@hp:/home/ali# grep -c firmware /var/log/messages
 5
 
