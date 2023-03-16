@@ -85,5 +85,13 @@
 
 8. Из каких опций состоит режим bash `set -euxo pipefail` и почему его хорошо было бы использовать в сценариях?
 
+
+        -e  Exit immediately if a command exits with a non-zero status.
+        -u  Treat unset variables as an error when substituting.
+        -x  Print commands and their arguments as they are executed.
+        pipefail     the return value of a pipeline is the status of the last command to exit with a non-zero status, or zero if no command exited with a non-zero status
+        Выход во время ошибки, считать за ошибку подстановку несуществующей переменной, вывод команд и аргументов во время выполнения, выводить exit код выполнения кажлой команды. Опциип полезны при отладке скрипта. 
+
+
 9. Используя `-o stat` для `ps`, определите, какой наиболее часто встречающийся статус у процессов в системе. В `man ps` ознакомьтесь (`/PROCESS STATE CODES`) что значат дополнительные к основной заглавной буквы статуса процессов. Его можно не учитывать при расчете (считать S, Ss или Ssl равнозначными).
 
