@@ -1,11 +1,11 @@
-1. Какой системный вызов делает команда `cd`? 
-chdir("/tmp")                           = 0
+1. Какой системный вызов делает команда `cd`?             
+        chdir("/tmp")                           = 0              
 
-root@hp:/home/ali# strace bash -c 'cd /tmp' 2>&1 |grep tmp
-execve("/usr/bin/bash", ["bash", "-c", "cd /tmp"], 0x7fff84188390 /* 42 vars */) = 0
-stat("/tmp", {st_mode=S_IFDIR|S_ISVTX|0777, st_size=4096, ...}) = 0
-chdir("/tmp")                           = 0
-root@hp:/home/ali# 
+        root@hp:/home/ali# strace bash -c 'cd /tmp' 2>&1 |grep tmp 
+        execve("/usr/bin/bash", ["bash", "-c", "cd /tmp"], 0x7fff84188390 /* 42 vars */) = 0
+        stat("/tmp", {st_mode=S_IFDIR|S_ISVTX|0777, st_size=4096, ...}) = 0
+        chdir("/tmp")                           = 0
+        root@hp:/home/ali# 
 
 
 1. Попробуйте использовать команду `file` на объекты разных типов в файловой системе. Например:
