@@ -51,6 +51,9 @@
 
 4. Занимают ли зомби-процессы какие-то ресурсы в ОС (CPU, RAM, IO)?
 
+        Занимают только PID в системе.
+
+
 5. В iovisor BCC есть утилита `opensnoop`:
     ```bash
     root@vagrant:~# dpkg -L bpfcc-tools | grep sbin/opensnoop
