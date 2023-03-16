@@ -10,16 +10,24 @@
         root@hp:/home/ali# 
 
 
-2. Попробуйте использовать команду `file` на объекты разных типов в файловой системе. Например:
-    ```bash
-    vagrant@netology1:~$ file /dev/tty
-    /dev/tty: character special (5/0)
-    vagrant@netology1:~$ file /dev/sda
-    /dev/sda: block special (8/0)
-    vagrant@netology1:~$ file /bin/bash
-    /bin/bash: ELF 64-bit LSB shared object, x86-64
-    ```
-    Используя `strace` выясните, где находится база данных `file`, на основании которой она делает свои догадки.
+2. Используя `strace` выясните, где находится база данных `file`, на основании которой она делает свои догадки.
+
+        root@hp:/home/ali# strace file /dev/tty 2>&1 | grep ^stat
+        stat("/root/.magic.mgc", 0x7fff76e45d90) = -1 ENOENT (Нет такого файла или каталога)
+        stat("/root/.magic", 0x7fff76e45d90)    = -1 ENOENT (Нет такого файла или каталога)
+        stat("/etc/magic", {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+        
+        root@hp:/home/ali# strace file /dev/sda 2>&1 | grep ^stat
+        stat("/root/.magic.mgc", 0x7ffc7f3aaab0) = -1 ENOENT (Нет такого файла или каталога)
+        stat("/root/.magic", 0x7ffc7f3aaab0)    = -1 ENOENT (Нет такого файла или каталога)
+        stat("/etc/magic", {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+
+        root@hp:/home/ali# strace file /bin/bash 2>&1 | grep ^stat
+        stat("/root/.magic.mgc", 0x7ffd87360f80) = -1 ENOENT (Нет такого файла или каталога)
+        stat("/root/.magic", 0x7ffd87360f80)    = -1 ENOENT (Нет такого файла или каталога)
+        stat("/etc/magic", {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+        root@hp:/home/ali# 
+
 
 1. Предположим, приложение пишет лог в текстовый файл. Этот файл оказался удален (deleted в lsof), однако возможности сигналом сказать приложению переоткрыть файлы или просто перезапустить приложение – нет. Так как приложение продолжает писать в удаленный файл, место на диске постепенно заканчивается. Основываясь на знаниях о перенаправлении потоков предложите способ обнуления открытого удаленного файла (чтобы освободить место на файловой системе).
 
