@@ -54,12 +54,22 @@
         Занимают только PID в системе.
 
 
-5. В iovisor BCC есть утилита `opensnoop`:
-    ```bash
-    root@vagrant:~# dpkg -L bpfcc-tools | grep sbin/opensnoop
-    /usr/sbin/opensnoop-bpfcc
-    ```
-    На какие файлы вы увидели вызовы группы `open` за первую секунду работы утилиты? Воспользуйтесь пакетом `bpfcc-tools` для Ubuntu 20.04. Дополнительные [сведения по установке](https://github.com/iovisor/bcc/blob/master/INSTALL.md).
+5. В iovisor BCC есть утилита `opensnoop`...
+
+        PID    COMM               FD ERR PATH
+        1302   Chrome_IOThread   430   0 /dev/shm/.com.google.Chrome.VVktmF
+        1302   Chrome_IOThread   431   0 /dev/shm/.com.google.Chrome.VVktmF
+        1302   Chrome_IOThread   430   0 /dev/shm/.com.google.Chrome.VWXAqG
+        1302   Chrome_IOThread   431   0 /dev/shm/.com.google.Chrome.VWXAqG
+        1302   Chrome_IOThread   430   0 /dev/shm/.com.google.Chrome.DBLd6C
+        1302   Chrome_IOThread   431   0 /dev/shm/.com.google.Chrome.DBLd6C
+        1302   Chrome_IOThread   430   0 /dev/shm/.com.google.Chrome.QCb0IC
+        1302   Chrome_IOThread   431   0 /dev/shm/.com.google.Chrome.QCb0IC
+        1302   Chrome_IOThread   430   0 /dev/shm/.com.google.Chrome.hST3BG
+        1302   Chrome_IOThread   431   0 /dev/shm/.com.google.Chrome.hST3BG
+        1302   Chrome_IOThread   430   0 /dev/shm/.com.google.Chrome.9RB4LC
+        1302   Chrome_IOThread   431   0 /dev/shm/.com.google.Chrome.9RB4LC
+
 
 1. Какой системный вызов использует `uname -a`? Приведите цитату из man по этому системному вызову, где описывается альтернативное местоположение в `/proc`, где можно узнать версию ядра и релиз ОС.
 
