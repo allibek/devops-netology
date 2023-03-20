@@ -7,7 +7,7 @@
     * предусмотрите возможность добавления опций к запускаемому процессу через внешний файл (посмотрите, например, на `systemctl cat cron`),
     * удостоверьтесь, что с помощью systemctl процесс корректно стартует, завершается, а после перезагрузки автоматически поднимается.
 
-         
+         ```
          [Unit]
          Description=node_exporter
          
@@ -51,6 +51,8 @@
       мар 20 22:47:07 hp node_exporter[8692]: ts=2023-03-20T15:47:07.925Z caller=node_exporter.go:117 level=info collector=zfs
       мар 20 22:47:07 hp node_exporter[8692]: ts=2023-03-20T15:47:07.926Z caller=tls_config.go:232 level=info msg="Listening on" address=[:>
       мар 20 22:47:07 hp node_exporter[8692]: ts=2023-03-20T15:47:07.926Z caller=tls_config.go:235 level=info msg="TLS is disabled." http2
+      ```
+
 
 2. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
 
