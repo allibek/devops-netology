@@ -73,8 +73,31 @@
 
 6. Какой системный вызов использует `uname -a`? Приведите цитату из man по этому системному вызову, где описывается альтернативное местоположение в `/proc`, где можно узнать версию ядра и релиз ОС.
  
-        читает файл
-        read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0@>\2\0\0\0\0\0"..., 832) = 832
+        strace uname -a
+        .....
+        .....
+        uname({sysname="Linux", nodename="hp", ...}) = 0
+        .....
+        .....
+        возвращает структуру
+           struct utsname {
+               char sysname[];    /* Operating system name (e.g., "Linux") */
+               char nodename[];   /* Name within "some implementation-defined
+                                     network" */
+               char release[];    /* Operating system release
+                                     (e.g., "2.6.28") */
+               char version[];    /* Operating system version */
+               char machine[];    /* Hardware identifier */
+           #ifdef _GNU_SOURCE
+               char domainname[]; /* NIS or YP domain name */
+           #endif
+           };
+
+        выдержка из man:
+        Part of the utsname information is also accessible via
+        /proc/sys/kernel/{ostype, hostname, osrelease, version,
+        domainname}.
+
 
 7. Чем отличается последовательность команд через `;` и через `&&` в bash?
  
