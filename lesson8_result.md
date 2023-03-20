@@ -8,6 +8,17 @@
     * удостоверьтесь, что с помощью systemctl процесс корректно стартует, завершается, а после перезагрузки автоматически поднимается.
 
          
+         [Unit]
+         Description=node_exporter
+         
+         [Service]
+         User=root
+         Group=root
+         ExecStart=/home/ali/work/node_exporter-1.5.0.linux-amd64/node_exporter $EXTRA_OPTS
+         
+         [Install]
+         WantedBy=multi-user.target
+         
          
          root@hp:/etc/systemd/system# systemctl status ne
          ● ne.service - node-exporter
