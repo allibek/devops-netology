@@ -7,29 +7,28 @@
     * предусмотрите возможность добавления опций к запускаемому процессу через внешний файл (посмотрите, например, на `systemctl cat cron`),
     * удостоверьтесь, что с помощью systemctl процесс корректно стартует, завершается, а после перезагрузки автоматически поднимается.
 
-
-      root@hp:/etc/systemd/system# systemctl status ne
-      ● ne.service - node-exporter
-         Loaded: loaded (/etc/systemd/system/ne.service; disabled; vendor preset: enabled)
-         Active: inactive (dead)
-      root@hp:/etc/systemd/system# systemctl enable ne
-      Created symlink /etc/systemd/system/multi-user.target.wants/ne.service → /etc/systemd/system/ne.service.
-      root@hp:/etc/systemd/system# systemctl status ne
-      ● ne.service - node-exporter
-         Loaded: loaded (/etc/systemd/system/ne.service; enabled; vendor preset: enabled)
-         Active: inactive (dead)
-      root@hp:/etc/systemd/system# systemctl start ne
-      root@hp:/etc/systemd/system# systemctl status ne
-      ● ne.service - node_exporter
-         Loaded: loaded (/etc/systemd/system/ne.service; enabled; vendor preset: enabled)
-         Active: active (running) since Mon 2023-03-20 22:47:07 +07; 4s ago
-         Main PID: 8692 (node_exporter)
-            Tasks: 5 (limit: 38037)
-         Memory: 3.5M
-            CPU: 6ms
-         CGroup: /system.slice/ne.service
-                   └─8692 /home/ali/work/node_exporter-1.5.0.linux-amd64/node_exporter
-      
+         
+         root@hp:/etc/systemd/system# systemctl status ne
+         ● ne.service - node-exporter
+            Loaded: loaded (/etc/systemd/system/ne.service; disabled; vendor preset: enabled)
+            Active: inactive (dead)
+         root@hp:/etc/systemd/system# systemctl enable ne
+         Created symlink /etc/systemd/system/multi-user.target.wants/ne.service → /etc/systemd/system/ne.service.
+         root@hp:/etc/systemd/system# systemctl status ne
+         ● ne.service - node-exporter
+            Loaded: loaded (/etc/systemd/system/ne.service; enabled; vendor preset: enabled)
+            Active: inactive (dead)
+         root@hp:/etc/systemd/system# systemctl start ne
+         root@hp:/etc/systemd/system# systemctl status ne
+         ● ne.service - node_exporter
+            Loaded: loaded (/etc/systemd/system/ne.service; enabled; vendor preset: enabled)
+            Active: active (running) since Mon 2023-03-20 22:47:07 +07; 4s ago
+            Main PID: 8692 (node_exporter)
+               Tasks: 5 (limit: 38037)
+            Memory: 3.5M
+               CPU: 6ms
+            CGroup: /system.slice/ne.service
+                      └─8692 /home/ali/work/node_exporter-1.5.0.linux-amd64/node_exporter
       мар 20 22:47:07 hp node_exporter[8692]: ts=2023-03-20T15:47:07.925Z caller=node_exporter.go:117 level=info collector=thermal_zone
       мар 20 22:47:07 hp node_exporter[8692]: ts=2023-03-20T15:47:07.925Z caller=node_exporter.go:117 level=info collector=time
       мар 20 22:47:07 hp node_exporter[8692]: ts=2023-03-20T15:47:07.925Z caller=node_exporter.go:117 level=info collector=timex
