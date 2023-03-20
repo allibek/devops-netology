@@ -8,6 +8,7 @@
     * удостоверьтесь, что с помощью systemctl процесс корректно стартует, завершается, а после перезагрузки автоматически поднимается.
 
          
+         
          root@hp:/etc/systemd/system# systemctl status ne
          ● ne.service - node-exporter
             Loaded: loaded (/etc/systemd/system/ne.service; disabled; vendor preset: enabled)
