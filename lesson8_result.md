@@ -55,6 +55,14 @@
 
 
 2. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
+     ```
+     node_cpu_seconds_total{cpu="....",mode="system"}
+     node_memory_MemAvailable_bytes
+     node_memory_MemFree_bytes
+     node_disk_io_time_seconds_total{device="....."}
+     node_network_receive_bytes_total
+     node_network_transmit_bytes_total
+     ```
 
 3. Установите в свою виртуальную машину [Netdata](https://github.com/netdata/netdata). Воспользуйтесь [готовыми пакетами](https://packagecloud.io/netdata/netdata/install) для установки (`sudo apt install -y netdata`). 
    
