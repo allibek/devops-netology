@@ -65,12 +65,45 @@
 6. Соберите `mdadm` RAID1 на паре разделов 2 Гб.
 
     ```
-    
+    /usr/sbin/mdadm --create /dev/md0 -l 1 -n 2 /dev/sdb1 /dev/sdc1
+    root@controller:/home/user# lsblk
+    NAME    MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
+    sda       8:0    0   40G  0 disk  
+    ├─sda1    8:1    0   39G  0 part  /
+    ├─sda2    8:2    0    1K  0 part  
+    └─sda5    8:5    0  975M  0 part  [SWAP]
+    sdb       8:16   0  2,5G  0 disk  
+    ├─sdb1    8:17   0    2G  0 part  
+    │ └─md0   9:0    0    2G  0 raid1 
+    └─sdb2    8:18   0  511M  0 part  
+    sdc       8:32   0  2,5G  0 disk  
+    ├─sdc1    8:33   0    2G  0 part  
+    │ └─md0   9:0    0    2G  0 raid1 
+    └─sdc2    8:34   0  511M  0 part  
+    sr0      11:0    1 1024M  0 rom   
     ```
 
 7. Соберите `mdadm` RAID0 на второй паре маленьких разделов.
 
     ```
+    /usr/sbin/mdadm --create /dev/md1 -l 0 -n 2 /dev/sdb2 /dev/sdc2
+    root@controller:/home/user# lsblk
+    NAME    MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
+    sda       8:0    0   40G  0 disk  
+    ├─sda1    8:1    0   39G  0 part  /
+    ├─sda2    8:2    0    1K  0 part  
+    └─sda5    8:5    0  975M  0 part  [SWAP]
+    sdb       8:16   0  2,5G  0 disk  
+    ├─sdb1    8:17   0    2G  0 part  
+    │ └─md0   9:0    0    2G  0 raid1 
+    └─sdb2    8:18   0  511M  0 part  
+      └─md1   9:1    0 1018M  0 raid0 
+    sdc       8:32   0  2,5G  0 disk  
+    ├─sdc1    8:33   0    2G  0 part  
+    │ └─md0   9:0    0    2G  0 raid1 
+    └─sdc2    8:34   0  511M  0 part  
+      └─md1   9:1    0 1018M  0 raid0 
+    sr0      11:0    1 1024M  0 rom  
     
     ```
 
