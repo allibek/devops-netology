@@ -182,21 +182,43 @@
 14. Прикрепите вывод `lsblk`.
 
     ```
-    
+    root@controller:/home/user# lsblk
+    NAME                    MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
+    sda                       8:0    0   40G  0 disk  
+    ├─sda1                    8:1    0   39G  0 part  /
+    ├─sda2                    8:2    0    1K  0 part  
+    └─sda5                    8:5    0  975M  0 part  [SWAP]
+    sdb                       8:16   0  2,5G  0 disk  
+    ├─sdb1                    8:17   0    2G  0 part  
+    │ └─md0                   9:0    0    2G  0 raid1 
+    └─sdb2                    8:18   0  511M  0 part  
+        └─md1                   9:1    0 1018M  0 raid0 
+            └─vg_homework-lv100 253:0    0  100M  0 lvm   /tmp/new
+    sdc                       8:32   0  2,5G  0 disk  
+    ├─sdc1                    8:33   0    2G  0 part  
+    │ └─md0                   9:0    0    2G  0 raid1 
+    └─sdc2                    8:34   0  511M  0 part  
+        └─md1                   9:1    0 1018M  0 raid0 
+            └─vg_homework-lv100 253:0    0  100M  0 lvm   /tmp/new
+    sr0                      11:0    1 1024M  0 rom   
     ```
     
 15. Протестируйте целостность файла:
 
-    ```bash
-    root@vagrant:~# gzip -t /tmp/new/test.gz
-    root@vagrant:~# echo $?
+    ```
+    root@controller:/home/user# gzip -t /tmp/new/test.gz
+    root@controller:/home/user# echo $?
     0
     ```
 
 16. Используя pvmove, переместите содержимое PV с RAID0 на RAID1.
 
     ```
-    
+    root@controller:/home/user# /usr/sbin/pvmove /dev/md1 /dev/md0
+      /dev/md1: Moved: 56,00%
+      /dev/md1: Moved: 100,00%
+    root@controller:/home/user# 
+
     ```
 
 17. Сделайте `--fail` на устройство в вашем RAID1 md.
