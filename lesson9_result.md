@@ -173,7 +173,10 @@
 13. Поместите туда тестовый файл, например `wget https://mirror.yandex.ru/ubuntu/ls-lR.gz -O /tmp/new/test.gz`.
 
     ```
-    
+    root@controller:/home/user# ls -lh /tmp/new/
+    итого 24M
+    drwx------ 2 root root 12K апр  1 13:31 lost+found
+    -rw-r--r-- 1 root root 24M апр  1 12:38 test.gz
     ```
 
 14. Прикрепите вывод `lsblk`.
