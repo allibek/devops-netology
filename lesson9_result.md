@@ -110,7 +110,12 @@
 8. Создайте 2 независимых PV на получившихся md-устройствах.
 
     ```
-    
+    root@controller:/home/user# /usr/sbin/pvcreate /dev/md0
+      Physical volume "/dev/md0" successfully created.
+    root@controller:/home/user# /usr/sbin/pvcreate /dev/md1
+      Physical volume "/dev/md1" successfully created.
+    root@controller:/home/user# 
+
     ```
 
 9. Создайте общую volume-group на этих двух PV.
