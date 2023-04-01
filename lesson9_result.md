@@ -30,13 +30,36 @@
 4. Используя `fdisk`, разбейте первый диск на 2 раздела: 2 Гб, оставшееся пространство.
 
     ```
-    
+    root@controller:/home/user# lsblk
+    NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+    sda      8:0    0   40G  0 disk 
+    ├─sda1   8:1    0   39G  0 part /
+    ├─sda2   8:2    0    1K  0 part 
+    └─sda5   8:5    0  975M  0 part [SWAP]
+    sdb      8:16   0  2,5G  0 disk 
+    └─sdb1   8:17   0    2G  0 part 
+    └─sdb2   8:18   0  511M  0 part 
+    sdc      8:32   0  2,5G  0 disk 
+    sr0     11:0    1 1024M  0 rom 
     ```
 
 5. Используя `sfdisk`, перенесите данную таблицу разделов на второй диск.
 
     ```
-    
+    /usr/sbin/sfdisk -d /dev/sdb | /usr/sbin/sfdisk /dev/sdc
+    root@controller:/home/user# lsblk
+    NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+    sda      8:0    0   40G  0 disk 
+    ├─sda1   8:1    0   39G  0 part /
+    ├─sda2   8:2    0    1K  0 part 
+    └─sda5   8:5    0  975M  0 part [SWAP]
+    sdb      8:16   0  2,5G  0 disk 
+    ├─sdb1   8:17   0    2G  0 part 
+    └─sdb2   8:18   0  511M  0 part 
+    sdc      8:32   0  2,5G  0 disk 
+    ├─sdc1   8:33   0    2G  0 part 
+    └─sdc2   8:34   0  511M  0 part 
+    sr0     11:0    1 1024M  0 rom 
     ```
 
 6. Соберите `mdadm` RAID1 на паре разделов 2 Гб.
