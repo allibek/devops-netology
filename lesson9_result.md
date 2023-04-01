@@ -121,13 +121,37 @@
 9. Создайте общую volume-group на этих двух PV.
 
     ```
-    
+    root@controller:/home/user# /usr/sbin/vgcreate vg_homework /dev/md0 /dev/md1
+      Volume group "vg_homework" successfully created
+    root@controller:/home/user# 
+
+
     ```
     
 10. Создайте LV размером 100 Мб, указав его расположение на PV с RAID0.
 
     ```
-    
+    root@controller:/home/user# /usr/sbin/lvcreate -n lv100 -L100M vg_homework /dev/md1 
+    Logical volume "lv100" created.
+    root@controller:/home/user# lsblk
+    NAME                    MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
+    sda                       8:0    0   40G  0 disk  
+    ├─sda1                    8:1    0   39G  0 part  /
+    ├─sda2                    8:2    0    1K  0 part  
+    └─sda5                    8:5    0  975M  0 part  [SWAP]
+    sdb                       8:16   0  2,5G  0 disk  
+    ├─sdb1                    8:17   0    2G  0 part  
+    │ └─md0                   9:0    0    2G  0 raid1 
+    └─sdb2                    8:18   0  511M  0 part  
+    └─md1                   9:1    0 1018M  0 raid0 
+        └─vg_homework-lv100 253:0    0  100M  0 lvm   
+    sdc                       8:32   0  2,5G  0 disk  
+    ├─sdc1                    8:33   0    2G  0 part  
+    │ └─md0                   9:0    0    2G  0 raid1 
+    └─sdc2                    8:34   0  511M  0 part  
+    └─md1                   9:1    0 1018M  0 raid0 
+        └─vg_homework-lv100 253:0    0  100M  0 lvm   
+    sr0                      11:0    1 1024M  0 rom  
     ```
 
 11. Создайте `mkfs.ext4` ФС на получившемся LV.
