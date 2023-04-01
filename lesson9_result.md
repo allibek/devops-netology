@@ -157,13 +157,17 @@
 11. Создайте `mkfs.ext4` ФС на получившемся LV.
 
     ```
-    
+    /usr/sbin/mkfs.ext4 /dev/vg_homework/lv100
     ```
 
 12. Смонтируйте этот раздел в любую директорию, например, `/tmp/new`.
 
     ```
-    
+    root@controller:/home/user# mkdir /tmp/new
+    root@controller:/home/user# mount /dev/vg_homework/lv100 /tmp/new/
+    root@controller:/home/user# mount |grep /tmp/new
+    /dev/mapper/vg_homework-lv100 on /tmp/new type ext4 (rw,relatime,stripe=1024)
+
     ```
 
 13. Поместите туда тестовый файл, например `wget https://mirror.yandex.ru/ubuntu/ls-lR.gz -O /tmp/new/test.gz`.
