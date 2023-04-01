@@ -232,13 +232,17 @@
 18. Подтвердите выводом `dmesg`, что RAID1 работает в деградированном состоянии.
 
     ```
-    
+    root@controller:/home/user# dmesg -T | tail -n 2
+        [Сб апр  1 13:51:02 2023] md/raid1:md0: Disk failure on sdb1, disabling device.
+        md/raid1:md0: Operation continuing on 1 devices.
+    root@controller:/home/user# 
+
     ```
 
 19. Протестируйте целостность файла, несмотря на "сбойный" диск он должен продолжать быть доступен:
 
-    ```bash
-    root@vagrant:~# gzip -t /tmp/new/test.gz
-    root@vagrant:~# echo $?
+    ```
+    root@controller:/home/user# gzip -t /tmp/new/test.gz
+    root@controller:/home/user# echo $?
     0
     ```
