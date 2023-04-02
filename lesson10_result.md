@@ -151,6 +151,8 @@ AS50512 -> AS15169 -> AS263411
 
 8. Повторите задание 5(наверное 7) в утилите `mtr`. На каком участке наибольшая задержка - delay?
 ```
+root@hp:/home/ali# mtr -t -y0 8.8.8.8
+
                                      My traceroute  [v0.94]
 hp (192.168.0.8) -> 8.8.8.8                                            2023-04-02T22:27:53+0700
 Keys:  Help   Display mode   Restart statistics   Order of fields   quit
@@ -180,10 +182,59 @@ Keys:  Help   Display mode   Restart statistics   Order of fields   quit
 22. AS15169  dns.google                               0.0%    15   66.4  67.1  66.2  70.2   1.1
 
 
+
+Наибольшие задержки на 8ом хопе.
 ```
 
 9. Какие DNS сервера отвечают за доменное имя dns.google? Какие A записи? Воспользуйтесь утилитой `dig`
 ```
+root@hp:/home/ali# dig NS dns.google
+
+; <<>> DiG 9.16.37-Debian <<>> NS dns.google
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 16469
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1280
+;; QUESTION SECTION:
+;dns.google.			IN	NS
+
+;; ANSWER SECTION:
+dns.google.		21600	IN	NS	ns3.zdns.google.
+dns.google.		21600	IN	NS	ns1.zdns.google.
+dns.google.		21600	IN	NS	ns2.zdns.google.
+dns.google.		21600	IN	NS	ns4.zdns.google.
+
+
+
+root@hp:/home/ali# dig A dns.google
+; <<>> DiG 9.16.37-Debian <<>> A dns.google
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 56972
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1280
+;; QUESTION SECTION:
+;dns.google.			IN	A
+
+;; ANSWER SECTION:
+dns.google.		506	IN	A	8.8.8.8
+dns.google.		506	IN	A	8.8.4.4
+
+
+Ответ:
+dns.google.		21600	IN	NS	ns3.zdns.google.
+dns.google.		21600	IN	NS	ns1.zdns.google.
+dns.google.		21600	IN	NS	ns2.zdns.google.
+dns.google.		21600	IN	NS	ns4.zdns.google.
+
+dns.google.		506	IN	A	8.8.8.8
+dns.google.		506	IN	A	8.8.4.4
+
 ```
 
 11. Проверьте PTR записи для IP адресов из задания 7. Какое доменное имя привязано к IP? Воспользуйтесь утилитой `dig`
