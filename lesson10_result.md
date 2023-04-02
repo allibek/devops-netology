@@ -6,13 +6,19 @@
 - Подключитесь утилитой телнет к сайту stackoverflow.com
 `telnet stackoverflow.com 80`
 - Отправьте HTTP запрос
-```bash
-GET /questions HTTP/1.0
-HOST: stackoverflow.com
-[press enter]
-[press enter]
 ```
-*В ответе укажите полученный HTTP код, что он означает?*
+  root@hp:/home/ali# telnet stackoverflow.com 80
+  Trying 151.101.129.69...
+  Connected to stackoverflow.com.
+  Escape character is '^]'.
+  GET /questions HTTP/1.0
+  HOST: stackoverflow.com
+
+  HTTP/1.1 403 Forbidden
+  Connection: close
+  
+  Ошибка сервера 403 Forbidden означает ограничение или отсутствие доступа к материалу на странице, которую вы пытаетесь загрузить
+```
 
 2. Повторите задание 1 в браузере, используя консоль разработчика F12.
 - откройте вкладку `Network`
