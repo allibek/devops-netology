@@ -149,8 +149,36 @@ AS50512 -> AS15169 -> AS263411
 
 ```
 
-8. Повторите задание 5 в утилите `mtr`. На каком участке наибольшая задержка - delay?
+8. Повторите задание 5(наверное 7) в утилите `mtr`. На каком участке наибольшая задержка - delay?
 ```
+                                     My traceroute  [v0.94]
+hp (192.168.0.8) -> 8.8.8.8                                            2023-04-02T22:27:53+0700
+Keys:  Help   Display mode   Restart statistics   Order of fields   quit
+                                                       Packets               Pings
+ Host                                                Loss%   Snt   Last   Avg  Best  Wrst StDev
+ 1. AS???    router.asus.com                          0.0%    16    1.6   2.0   1.3   4.2   0.9
+ 2. AS50512  188.233.215.253                          0.0%    16    2.0   3.0   1.6   8.3   1.9
+ 3. AS50512  lag-3-438.bgw01.barnaul.ertelecom.ru     0.0%    16    4.6   5.0   1.8  22.6   5.8
+ 4. AS15169  72.14.215.165                            0.0%    16   53.3  51.2  49.0  56.1   2.5
+ 5. AS15169  72.14.215.166                            0.0%    16   49.5  54.5  49.3  93.5  12.6
+ 6. AS15169  108.170.250.129                          0.0%    16   50.3  54.0  50.0  91.1  10.2
+ 7. AS15169  108.170.250.130                          0.0%    16   49.9  50.3  49.6  51.9   0.7
+ 8. AS15169  142.250.238.214                          0.0%    16   60.0  60.5  59.7  63.1   1.0
+ 9. AS15169  142.250.235.62                           0.0%    16   58.8  61.6  58.8  81.3   5.8
+10. AS15169  216.239.63.129                           0.0%    16   59.8  60.8  59.4  66.2   1.7
+11. (waiting for reply)
+12. (waiting for reply)
+13. (waiting for reply)
+14. (waiting for reply)
+15. (waiting for reply)
+16. (waiting for reply)
+17. (waiting for reply)
+18. (waiting for reply)
+19. (waiting for reply)
+20. (waiting for reply)
+21. (waiting for reply)
+22. AS15169  dns.google                               0.0%    15   66.4  67.1  66.2  70.2   1.1
+
 
 ```
 
