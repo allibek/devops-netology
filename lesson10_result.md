@@ -160,5 +160,29 @@ AS50512 -> AS15169 -> AS263411
 
 11. Проверьте PTR записи для IP адресов из задания 7. Какое доменное имя привязано к IP? Воспользуйтесь утилитой `dig`
 ```
+root@hp:/home/ali# dig -x 8.8.8.8
+
+; <<>> DiG 9.16.37-Debian <<>> -x 8.8.8.8
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 45840
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1280
+;; QUESTION SECTION:
+;8.8.8.8.in-addr.arpa.		IN	PTR
+
+;; ANSWER SECTION:
+8.8.8.8.in-addr.arpa.	68345	IN	PTR	dns.google.
+
+;; Query time: 4 msec
+;; SERVER: 192.168.0.1#53(192.168.0.1)
+;; WHEN: Sun Apr 02 22:15:03 +07 2023
+;; MSG SIZE  rcvd: 73
+
+
+
+8.8.8.8.in-addr.arpa
 ```
 
