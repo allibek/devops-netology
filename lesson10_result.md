@@ -183,7 +183,7 @@ Keys:  Help   Display mode   Restart statistics   Order of fields   quit
 
 
 
-Наибольшие задержки на 8ом хопе.
+Наибольшие задержки на 9ом хопе.
 ```
 
 9. Какие DNS сервера отвечают за доменное имя dns.google? Какие A записи? Воспользуйтесь утилитой `dig`
