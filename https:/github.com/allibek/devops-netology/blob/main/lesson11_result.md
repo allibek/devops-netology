@@ -58,3 +58,6 @@ UNCONN    0          0                       [::]:58745                 [::]:*  
 ```
 
 5. Используя diagrams.net, создайте L3 диаграмму вашей домашней сети или любой другой сети, с которой вы работали.
+```
+https://softradegroup-my.sharepoint.com/:u:/g/personal/oap_cortel_cloud/EX1uX5Hu7nxJuivohy4PazgBCTkWN3Hxfluz0Aee8-ZHiA
+```
