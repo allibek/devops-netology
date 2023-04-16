@@ -35,5 +35,26 @@ LISTEN    0          128                    [::1]:631                   [::]:*  
 ```
 
 4. Проверьте используемые UDP сокеты в Ubuntu, какие протоколы и приложения используют эти порты?
+```
+root@hp:/home/ali# ss -lupn
+State     Recv-Q     Send-Q         Local Address:Port          Peer Address:Port    Process                                                      
+UNCONN    0          0                    0.0.0.0:111                0.0.0.0:*        users:(("rpcbind",pid=530,fd=5),("systemd",pid=1,fd=36))    
+UNCONN    0          0                    0.0.0.0:631                0.0.0.0:*        users:(("cups-browsed",pid=868,fd=7))                       
+UNCONN    0          0                    0.0.0.0:50001              0.0.0.0:*        users:(("anydesk",pid=725,fd=46))                           
+UNCONN    0          0                224.0.0.251:5353               0.0.0.0:*        users:(("chrome",pid=2163,fd=68))                           
+UNCONN    0          0                224.0.0.251:5353               0.0.0.0:*        users:(("chrome",pid=2163,fd=52))                           
+UNCONN    0          0                224.0.0.251:5353               0.0.0.0:*        users:(("chrome",pid=2118,fd=486))                          
+UNCONN    0          0                224.0.0.251:5353               0.0.0.0:*        users:(("chrome",pid=2118,fd=184))                          
+UNCONN    0          0                    0.0.0.0:5353               0.0.0.0:*        users:(("avahi-daemon",pid=592,fd=12))                      
+UNCONN    0          0                    0.0.0.0:44018              0.0.0.0:*        users:(("avahi-daemon",pid=592,fd=14))                      
+UNCONN    0          0                       [::]:111                   [::]:*        users:(("rpcbind",pid=530,fd=7),("systemd",pid=1,fd=38))    
+UNCONN    0          0                       [::]:5353                  [::]:*        users:(("avahi-daemon",pid=592,fd=13))                      
+UNCONN    0          0                       [::]:58745                 [::]:*        users:(("avahi-daemon",pid=592,fd=15))   
+
+631   - служба печати
+5353  - chrome
+50001 - anydesk
+
+```
 
 5. Используя diagrams.net, создайте L3 диаграмму вашей домашней сети или любой другой сети, с которой вы работали.
