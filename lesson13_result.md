@@ -1,16 +1,27 @@
 1. Установите плагин Bitwarden для браузера. Зарегестрируйтесь и сохраните несколько паролей.
 
 ```
+Установил, сохранил.
 ```
 
 2. Установите Google Authenticator на мобильный телефон. Настройте вход в Bitwarden-акаунт через Google Authenticator OTP.
 
 ```
+Настроил
 ```
 
 3. Установите apache2, сгенерируйте самоподписанный сертификат, настройте тестовый сайт для работы по HTTPS.
 
 ```
+apt install apache2
+openssl req -x509 -nodes -days 999000 -newkey rsa:2048 -keyout ./key.key -out ./crt.crt
+в дефаултном конфиге apache включим ssl:
+SSLEngine on
+SSLCertificateFile /etc/ssl/certs/crt.crt
+SSLCertificateKeyFile /etc/ssl/private/key.key
+
+/usr/sbin/a2enmod ssl
+systemctl restart apache2
 ```
 
 4. Проверьте на TLS-уязвимости произвольный сайт в интернете (кроме сайтов МВД, ФСБ, МинОбр, НацБанк, РосКосмос, РосАтом, РосНАНО и любых госкомпаний, объектов КИИ, ВПК и т. п.).
