@@ -95,4 +95,5 @@ ssh user@192.168.122.209
 7. Соберите дамп трафика утилитой tcpdump в формате pcap, 100 пакетов. Откройте файл pcap в Wireshark.
 
 ```
+tcpdump -i wlp1s0 -c 100 -w result.pcap
 ```
