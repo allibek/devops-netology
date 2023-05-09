@@ -63,11 +63,11 @@ Hey, Netology
 ## Задача 3
 Запустите первый контейнер из образа centos c любым тэгом в фоновом режиме, подключив папку info из текущей рабочей директории на хостовой машине в /share/info контейнера;
 ```
-docker run -it -v  ./info:/share/info centos:latest
+docker run -it -v  /home/ali/devops-netology/docker/info:/share/info centos:latest
 ```
 Запустите второй контейнер из образа debian:latest в фоновом режиме, подключив папку info из текущей рабочей директории на хостовой машине в /info контейнера;
 ```
-docker run -it -v  ./info:/info debian:latest
+docker run -it -v  /home/ali/devops-netology/docker/info:/info debian:latest
 ```
 Подключитесь к первому контейнеру с помощью exec и создайте текстовый файл любого содержания в /share/info ;
 Добавьте еще один файл в папку info на хостовой машине;
@@ -75,12 +75,15 @@ docker run -it -v  ./info:/info debian:latest
 
 ```
 docker ps -a
-docker exec -it  bash
+docker exec -it d9e295cccd71 bash
 touch /share/info/1.txt
 exit
 touch ./share/2.txt
-docker exec -it  bash
-ls -lh /share
+docker exec -it 124a76540462 bash
+root@124a76540462:/# ls -lh /info/
+total 0
+-rw-r--r-- 1 root root 0 May  9 07:09 1.txt
+-rw-r--r-- 1 root root 0 May  9 07:10 2.txt
 
 ```
 
