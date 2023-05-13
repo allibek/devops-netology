@@ -68,17 +68,28 @@ root@hp:/home/ali/devops-netology/docker2# docker logs bafd34b11c2d
 Базовый образ - ubuntu:latest
 Присвоить образу тэг ver2
 Соберите 2 образа по полученным Dockerfile
+```
+FROM ubuntu:22.04
 
-Запустите и проверьте их работоспособность
+RUN apt update && apt install -y curl openjdk-11-jre && \
+	curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null  && \
+	echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | tee /etc/apt/sources.list.d/jenkins.list > /dev/null && \
+	apt update && \
+	apt install -y jenkins
 
-Опубликуйте образы в своём dockerhub.io хранилище
 
-Для получения зачета, вам необходимо предоставить:
+# web ui
+EXPOSE 8080
 
-Наполнения 2х Dockerfile из задания
-Скриншоты логов запущенных вами контейнеров (из командной строки)
-Скриншоты веб-интерфейса Jenkins запущенных вами контейнеров (достаточно 1 скриншота на контейнер)
-Ссылки на образы в вашем хранилище docker-hub
+# slave agents:
+EXPOSE 50000
+
+ENTRYPOINT ["/usr/bin/java", "-Djava.awt.headless=true", "-jar", "/usr/share/java/jenkins.war", "--webroot=/var/cache/jenkins/war", "--httpPort=8080"]
+
+```
+```
+образ: allibek/repo1:ubuntu_jenkins
+```
 
 ## Задача 3
 В данном задании вы научитесь:
