@@ -2,25 +2,20 @@
 
 ## Задача 1
 В данном задании вы научитесь изменять существующие Dockerfile, адаптируя их под нужный инфраструктурный стек.
-
 Измените базовый образ предложенного Dockerfile на Arch Linux c сохранением его функциональности.
 
-FROM ubuntu:latest
+```
+root@hp:/home/ali/devops-netology/docker2# cat Dockerfile 
+FROM archlinux:latest
 
-RUN apt-get update && \
-    apt-get install -y software-properties-common && \
-    add-apt-repository ppa:vincent-c/ponysay && \
-    apt-get update
- 
-RUN apt-get install -y ponysay
+RUN yes | pacman -Sy community/ponysay
 
 ENTRYPOINT ["/usr/bin/ponysay"]
 CMD ["Hey, netology”]
-Для получения зачета, вам необходимо предоставить:
 
-Написанный вами Dockerfile
-Скриншот вывода командной строки после запуска контейнера из вашего базового образа
-Ссылку на образ в вашем хранилище docker-hub
+образ: allibek/repo1:pony_say
+```
+
 
 ## Задача 2
 В данной задаче вы составите несколько разных Dockerfile для проекта Jenkins, опубликуем образ в dockerhub.io и посмотрим логи этих контейнеров.
