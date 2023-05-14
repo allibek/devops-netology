@@ -91,6 +91,57 @@ ENTRYPOINT ["/usr/bin/java", "-Djava.awt.headless=true", "-jar", "/usr/share/jav
 образ: allibek/repo1:ubuntu_jenkins
 ```
 
+```
+FROM amazoncorretto:11
+
+RUN     yum upgrade && \
+        yum install wget -y && \
+        wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo && \
+        rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key && \
+        yum upgrade && \
+        yum install java-11-openjdk && \
+        yum install jenkins -y
+
+# web ui
+EXPOSE 8080
+
+# slave agents:
+EXPOSE 50000
+
+ENTRYPOINT ["/usr/bin/java", "-Djava.awt.headless=true", "-jar", "/usr/share/java/jenkins.war", "--webroot=/var/cache/jenkins/war", "--httpPort=8080"]
+```
+
+```
+образ: allibek/repo1:amazoncorreto_jenkins
+```
+
+```
+docker run -p 8080:8080 -p 50000:50000 allibek/repo1:ubuntu_jenkins
+docker run -p 8080:8080 -p 50000:50000 allibek/repo1:amazoncorreto_jenkins
+
+................
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+b9b87cd786b648f28fcbcf4250c335a2
+
+This may also be found at: /root/.jenkins/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+................
+```
+
+
+
+
+
+
 ## Задача 3
 В данном задании вы научитесь:
 
