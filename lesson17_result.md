@@ -51,6 +51,7 @@ root@hp:/home/ali/devops-netology/docker2# docker logs bafd34b11c2d
 ```
 
 
+
 ## Задача 2
 В данной задаче вы составите несколько разных Dockerfile для проекта Jenkins, опубликуем образ в dockerhub.io и посмотрим логи этих контейнеров.
 
@@ -143,12 +144,6 @@ This may also be found at: /root/.jenkins/secrets/initialAdminPassword
 
 
 ## Задача 3
-В данном задании вы научитесь:
-
-объединять контейнеры в единую сеть
-исполнять команды "изнутри" контейнера
-Для выполнения задания вам нужно:
-
 Написать Dockerfile:
 
 Использовать образ https://hub.docker.com/_/node как базовый
