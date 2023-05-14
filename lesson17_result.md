@@ -158,9 +158,8 @@ This may also be found at: /root/.jenkins/secrets/initialAdminPassword
 
 Используя утилиту curl вызвать путь / контейнера с npm приложением
 
-Для получения зачета, вам необходимо предоставить:
+```
 
-Наполнение Dockerfile с npm приложением
-Скриншот вывода вызова команды списка docker сетей (docker network cli)
-Скриншот вызова утилиты curl с успешным ответом
+
+```
 
